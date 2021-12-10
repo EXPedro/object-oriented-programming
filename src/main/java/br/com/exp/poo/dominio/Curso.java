@@ -9,16 +9,33 @@ import lombok.ToString.Include;
 @Getter
 @Setter
 @ToString
-public class Curso {
-    @Include(name = "Título")
-    private String titulo;
-    @Include(name = "Descrição")
-    private String descricao;
+public class Curso extends Conteudo{
     @ToString.Exclude
     private int cargaHoraria;
 
+    @ToString.Include(name = "Titulo")
+//    String s = getTitulo();
+    public String getTitle(){
+        if (getTitulo() == null) return " Não definido!";
+        else
+            return getTitulo();
+    }
+    @ToString.Include(name = "Definição")
+    public String getDesc(){
+        if (getDescricao() == null) return " Não definida!";
+        else
+            return getDescricao();
+    }
+
     @Include(name = "Carga Horária")
     public String getCH(){
+        if (this.cargaHoraria == 0) return " Não definida!";
+        else
         return this.cargaHoraria + "h";
+    }
+
+    @Override
+    public double calcularXp() {
+        return 0;
     }
 }

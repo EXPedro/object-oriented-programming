@@ -6,7 +6,12 @@ public class AppMain {
         Curso curso = new Curso();
         Mentoria mentoria =  new Mentoria();
 
+        curso.setTitulo("***title number 1***");
+        mentoria.setTitulo("mentoria title");
         System.out.println(curso);
         System.out.println(mentoria);
+
+        System.out.println("Curso :: " + curso.getTitulo());
+        System.out.println("Mentoria :: " + mentoria.getTitulo());
     }
 }
